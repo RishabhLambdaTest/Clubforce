@@ -1,0 +1,929 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.clubforce.app</groupId>
+    <artifactId>website-tests</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <name>Clubforce website tests</name>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <!-- <suiteXmlFile>runAllTests.xml</suiteXmlFile> -->
+        <logLevel>INFO</logLevel>
+        <cucumberVersion>7.11.1</cucumberVersion>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.amazonaws</groupId>
+                <artifactId>aws-java-sdk-bom</artifactId>
+                <version>1.11.331</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <version>4.8.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>software.amazon.awssdk</groupId>
+            <artifactId>regions</artifactId>
+            <version>2.20.156</version>
+        </dependency>
+
+        <dependency>
+            <groupId>software.amazon.awssdk</groupId>
+            <artifactId>devicefarm</artifactId>
+            <version>2.20.156</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>7.7.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-testng</artifactId>
+            <version>${cucumberVersion}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-java</artifactId>
+            <version>${cucumberVersion}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-picocontainer</artifactId>
+            <version>${cucumberVersion}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>31.1-jre</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.opencsv</groupId>
+            <artifactId>opencsv</artifactId>
+            <version>5.7.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>2.11.0</version>
+            <scope>compile</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>io.appium</groupId>
+            <artifactId>java-client</artifactId>
+            <version>8.3.0</version>
+        </dependency>
+
+        <!--        <dependency>-->
+        <!--            <groupId>commons-collections</groupId>-->
+        <!--            <artifactId>commons-collections</artifactId>-->
+        <!--            <version>20040616</version>-->
+        <!--        </dependency>-->
+
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-collections4</artifactId>
+            <version>4.4</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.json</groupId>
+            <artifactId>json</artifactId>
+            <version>20230227</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.hamcrest</groupId>
+            <artifactId>hamcrest-library</artifactId>
+            <version>2.2</version>
+            <scope>compile</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.bouncycastle</groupId>
+            <artifactId>bcpkix-jdk15on</artifactId>
+            <version>1.70</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.pdfbox</groupId>
+            <artifactId>pdfbox</artifactId>
+            <version>2.0.27</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.testautomationguru.pdfutil</groupId>
+            <artifactId>pdf-util</artifactId>
+            <version>0.0.3</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.hamcrest</groupId>
+            <artifactId>hamcrest-core</artifactId>
+            <version>2.2</version>
+            <scope>compile</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.exparity</groupId>
+            <artifactId>hamcrest-date</artifactId>
+            <version>2.0.8</version>
+            <scope>compile</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.amazonaws</groupId>
+            <artifactId>aws-java-sdk-s3</artifactId>
+            <version>1.12.470</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.github.tomakehurst</groupId>
+            <artifactId>wiremock</artifactId>
+            <version>2.27.2</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.hierynomus</groupId>
+            <artifactId>sshj</artifactId>
+            <version>0.35.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.awaitility</groupId>
+            <artifactId>awaitility</artifactId>
+            <version>4.2.0</version>
+            <scope>compile</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.thedeanda</groupId>
+            <artifactId>lorem</artifactId>
+            <version>2.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-api</artifactId>
+            <version>2.20.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>2.20.0</version>
+        </dependency>
+
+<!--        <dependency>-->
+<!--            <groupId>org.apache.logging.log4j</groupId>-->
+<!--            <artifactId>log4j-slf4j-impl</artifactId>-->
+<!--            <version>2.19.0</version>-->
+<!--        </dependency>-->
+
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+            <version>4.5.14</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.ant</groupId>
+            <artifactId>ant</artifactId>
+            <version>1.10.13</version>
+        </dependency>
+
+        <dependency>
+            <groupId>commons-lang</groupId>
+            <artifactId>commons-lang</artifactId>
+            <version>2.6</version>
+        </dependency>
+    </dependencies>
+
+    <profiles>
+        <profile>
+            <id>env.local</id>
+            <activation>
+                <property>
+                    <name>env</name>
+                    <value>local</value>
+                </property>
+            </activation>
+            <properties>
+                <env.name>local</env.name>
+                <env.url>http://localdevtestclub.development.local:4100</env.url>
+                <backoffice.url>http://backoffice.development.local:4200</backoffice.url>
+                <clubAdminUsername>localdevtestclub@clubforce.com</clubAdminUsername>
+                <clubAdminPassword>b3deG2FnmrEy</clubAdminPassword>
+                <superuser.url>http://su.development.local:4400</superuser.url>
+                <superuserUsername>su@clubforce.com</superuserUsername>
+                <superuserPassword>b3deG2FnmrEy</superuserPassword>
+                <myAccount.url>http://myaccount.development.local:4300</myAccount.url>
+                <myAccountUsername>member@clubforce.com</myAccountUsername>
+                <myAccountPassword>b3deG2FnmrEy</myAccountPassword>
+                <lottoClub.url>http://localdevtestclub.development.local:4100</lottoClub.url>
+                <lottoClubAdminUsername>localdevtestclub@clubforce.com</lottoClubAdminUsername>
+                <lottoClubAdminPassword>b3deG2FnmrEy</lottoClubAdminPassword>
+                <lottoClub.url>http://localdevtestclub.development.local:4100</lottoClub.url>
+                <membershipClubAdminUsername>localdevtestclub@clubforce.com</membershipClubAdminUsername>
+                <membershipClubAdminPassword>b3deG2FnmrEy</membershipClubAdminPassword>
+                <adminMemberUsername>localdevtestclub@clubforce.com</adminMemberUsername>
+                <adminMemberPassword>b3deG2FnmrEy</adminMemberPassword>
+                <xgb.url>https://xgb.developement</xgb.url>
+                <xgbAdminUsername>xxxxxxx@xxxxxxx.com</xgbAdminUsername>
+                <xgbAdminPassword>b3deG2FnmrEy</xgbAdminPassword>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>env.test</id>
+            <activation>
+                <property>
+                    <name>env</name>
+                    <value>test</value>
+                </property>
+            </activation>
+            <properties>
+                <env.name>test</env.name>
+                <env.url>https://pennybridgerugby.test.clubforce.io</env.url>
+                <backoffice.url>https://backoffice.test.clubforce.io</backoffice.url>
+                <clubAdminUsername>pennybridgeadmin@example.com</clubAdminUsername>
+                <clubAdminPassword>b3deG2FnmrEy</clubAdminPassword>
+                <superuser.url>https://su.test.clubforce.io</superuser.url>
+                <superuserUsername>su@clubforce.com</superuserUsername>
+                <superuserPassword>b3deG2FnmrEy</superuserPassword>
+                <myAccount.url>https://myaccount.test.clubforce.io</myAccount.url>
+                <myAccountUsername>member@clubforce.com</myAccountUsername>
+                <myAccountPassword>b3deG2FnmrEy</myAccountPassword>
+                <lottoClub.url>https://durbandaily.test.clubforce.io</lottoClub.url>
+                <lottoClubAdminUsername>5371517680@clubforce.com</lottoClubAdminUsername>
+                <lottoClubAdminPassword>b3deG2FnmrEy</lottoClubAdminPassword>
+                <membershipClub.url>https://donnamoregolfclub.test.clubforce.io</membershipClub.url>
+                <membershipClubAdminUsername>donnamore@example.com</membershipClubAdminUsername>
+                <membershipClubAdminPassword>b3deG2FnmrEy</membershipClubAdminPassword>
+                <adminMemberUsername>thiagoadminmember@clubforce.com</adminMemberUsername>
+                <adminMemberPassword>b3deG2FnmrEy</adminMemberPassword>
+                <xgb.url>https://xgb.test.clubforce.io</xgb.url>
+                <xgbAdminUsername>zzz_xgb4274710@clubforce.com</xgbAdminUsername>
+                <xgbAdminPassword>b3deG2FnmrEy</xgbAdminPassword>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>env.sandbox</id>
+            <activation>
+                <property>
+                    <name>env</name>
+                    <value>sandbox</value>
+                </property>
+            </activation>
+            <properties>
+                <env.name>sandbox</env.name>
+                <env.url>https://pennybridgerugby.sandbox.clubforce.io</env.url>
+                <backoffice.url>https://backoffice.sandbox.clubforce.io</backoffice.url>
+                <clubAdminUsername>PennybridgeAdmin@example.com</clubAdminUsername>
+                <clubAdminPassword>b3deG2FnmrEy</clubAdminPassword>
+                <superuser.url>https://su.sandbox.clubforce.io</superuser.url>
+                <superuserUsername>su@clubforce.com</superuserUsername>
+                <superuserPassword>b3deG2FnmrEy</superuserPassword>
+                <myAccount.url>https://myaccount.sandbox.clubforce.io</myAccount.url>
+                <myAccountUsername>membersandbox2022@clubforce.com</myAccountUsername>
+                <myAccountPassword>b3deG2FnmrEy</myAccountPassword>
+                <lottoClub.url>https://donnamoregolfclub.sandbox.clubforce.io</lottoClub.url>
+                <lottoClubAdminUsername>lottoadminsandbox@example.com</lottoClubAdminUsername>
+                <lottoClubAdminPassword>b3deG2FnmrEy</lottoClubAdminPassword>
+                <membershipClub.url>https://genWalesMembership810581.sandbox.clubforce.io</membershipClub.url>
+                <membershipClubAdminUsername>8578321124@clubforce.com</membershipClubAdminUsername>
+                <membershipClubAdminPassword>b3deG2FnmrEy</membershipClubAdminPassword>
+                <xgb.url>https://xgb.sandbox.clubforce.io</xgb.url>
+                <xgbAdminUsername>automation7835356@clubforce.com</xgbAdminUsername>
+                <xgbAdminPassword>SP7KJ3fK</xgbAdminPassword>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>env.prod</id>
+            <activation>
+                <property>
+                    <name>env</name>
+                    <value>prod</value>
+                </property>
+            </activation>
+            <properties>
+                <env.name>prod</env.name>
+                <env.url>https://pennycricket.clubforce.com</env.url>
+                <backoffice.url>https://backoffice.clubforce.com</backoffice.url>
+                <clubAdminUsername>pennycricketadmin@clubforce.com</clubAdminUsername>
+                <clubAdminPassword>HRLClbHRLd33</clubAdminPassword>
+                <superuser.url>https://su.clubforce.com</superuser.url>
+                <superuserUsername>Magnus@clubforce.com</superuserUsername>
+                <superuserPassword>8kytA8BaB6GM</superuserPassword>
+                <myAccount.url>https://myaccount.clubforce.com</myAccount.url>
+                <myAccountUsername>octobermemberprod@clubforce.com</myAccountUsername>
+                <myAccountPassword>tA8BaB6GM</myAccountPassword>
+                <lottoClub.url>https://pennycricket.clubforce.com/</lottoClub.url>
+                <lottoClubAdminUsername>xxxxxxx@example.com</lottoClubAdminUsername>
+                <lottoClubAdminPassword>xxxxxxx</lottoClubAdminPassword>
+                <membershipClub.url>https://pennycricket.clubforce.com</membershipClub.url>
+                <membershipClubAdminUsername>xxxxxx@clubforce.com</membershipClubAdminUsername>
+                <membershipClubAdminPassword>xxxxxxx</membershipClubAdminPassword>
+                <adminMemberUsername>xxxxxxxxx@clubforce.com</adminMemberUsername>
+                <adminMemberPassword>b3deG2FnmrEy</adminMemberPassword>
+                <xgb.url>https://xgb.clubforce.com</xgb.url>
+                <xgbAdminUsername>magnus+78363535@clubforce.com</xgbAdminUsername>
+                <xgbAdminPassword>5QBzH3xM</xgbAdminPassword>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>chrome.local.win</id>
+            <activation>
+                <property>
+                    <name>selenium</name>
+                    <value>chrome.local.win</value>
+                </property>
+            </activation>
+            <properties>
+                <agent>chrome.local.win</agent>
+                <driverPath>src/main/resources/seleniumDrivers/chromedriver112.exe</driverPath>
+                <!-- Set to true to run Chrome in headless mode -->
+                <headless.browser>false</headless.browser>
+            </properties>
+        </profile>
+
+        <!-- <profile>
+            <id>chrome.local.mac</id>
+            <activation>
+                <property>
+                    <name>selenium</name>
+                    <value>chrome.local.mac</value>
+                </property>
+            </activation>
+            <properties>
+                <agent>chrome.local.mac</agent>
+                <driverPath>src/main/resources/seleniumDrivers/chromedriver105MacM1</driverPath>
+            </properties>
+        </profile> -->
+
+        <!-- <profile>
+            <id>safari.local.mac</id>
+            <activation>
+                <property>
+                    <name>selenium</name>
+                    <value>safari.local.mac</value>
+                </property>
+            </activation>
+            <properties>
+                <agent>safari.local.mac</agent>
+                <driverPath>src/main/resources/seleniumDrivers/chromedriver105MacM1</driverPath>
+            </properties>
+        </profile> -->
+
+        <!-- <profile>
+            <id>chrome.local.linux</id>
+            <activation>
+                <property>
+                    <name>selenium</name>
+                    <value>chrome.local.linux</value>
+                </property>
+            </activation>
+            <properties>
+                <agent>chrome.local.linux</agent>
+                <driverPath>src/main/resources/seleniumDrivers/chromedriver116Linux</driverPath>
+                Set to true to run Chrome in headless mode
+                <headless.browser>false</headless.browser>
+            </properties>
+        </profile> -->
+
+        <!-- <profile>
+            <id>emulator.local.linux</id>
+            <activation>
+                <property>
+                    <name>selenium</name>
+                    <value>emulator.local.linux</value>
+                </property>
+            </activation>
+            <properties>
+                <agent>emulator.local.linux</agent>
+                <driverPath>src/main/resources/seleniumDrivers/chromedriver103Linux</driverPath>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>pixel7viewport.appium.local</id>
+            <activation>
+                <property>
+                    <name>selenium</name>
+                    <value>pixel7viewport.appium.local</value>
+                </property>
+            </activation>
+            <properties>
+                <agent>pixel7viewport.appium.local</agent>
+                <driverPath>src/main/resources/seleniumDrivers/chromedriver116Linux</driverPath>
+            </properties>
+        </profile> -->
+
+        <!-- <profile>
+            <id>pixel7viewport.appium.lambdatest</id>
+            <activation>
+                <property>
+                    <name>selenium</name>
+                    <value>pixel7viewport.appium.lambdatest</value>
+                </property>
+            </activation>
+            <properties>
+                <agent>pixel7viewport.appium.lambdatest</agent>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>iPhone14viewport.appium.lambdatest</id>
+            <activation>
+                <property>
+                    <name>selenium</name>
+                    <value>iPhone14viewport.appium.lambdatest</value>
+                </property>
+            </activation>
+            <properties>
+                <agent>iPhone14viewport.appium.lambdatest</agent>
+            </properties>
+        </profile> -->
+
+        <!-- <profile>
+            <id>edge.local.win</id>
+            <activation>
+                <property>
+                    <name>selenium</name>
+                    <value>edge.local.win</value>
+                </property>
+            </activation>
+            <properties>
+                <agent>edge.local.win</agent>
+                <driverPath>src/main/resources/seleniumDrivers/msedgedriver.exe</driverPath>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>firefox.local.win</id>
+            <activation>
+                <property>
+                    <name>selenium</name>
+                    <value>firefox.local.win</value>
+                </property>
+            </activation>
+            <properties>
+                <agent>firefox.local.win</agent>
+                <driverPath>src/main/resources/seleniumDrivers/geckodriver.exe</driverPath>
+            </properties>
+        </profile> -->
+
+        <!-- <profile>
+            <id>firefox.local.mac.aarch64</id>
+            <activation>
+                <property>
+                    <name>selenium</name>
+                    <value>firefox.local.mac.aarch64</value>
+                </property>
+            </activation>
+            <properties>
+                <agent>firefox.local.mac.aarch64</agent>
+                <driverPath>src/main/resources/seleniumDrivers/geckodriver-v0.32.2-macos-aarch64</driverPath>
+            </properties>
+        </profile> -->
+
+        <!-- <profile>
+            <id>firefox.local.mac</id>
+            <activation>
+                <property>
+                    <name>selenium</name>
+                    <value>firefox.local.mac</value>
+                </property>
+            </activation>
+            <properties>
+                <agent>firefox.local.mac</agent>
+                <driverPath>src/main/resources/seleniumDrivers/geckodriver-v0.32.2-macos</driverPath>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>chrome.selenium_grid</id>
+            <activation>
+                <property>
+                    <name>selenium</name>
+                    <value>chrome.selenium_grid</value>
+                </property>
+            </activation>
+            <properties>
+                <agent>chrome.selenium_grid</agent>
+            </properties>
+        </profile> -->
+
+        <!-- <profile>
+            <id>chromeLatest.aws</id>
+            <activation>
+                <property>
+                    <name>selenium</name>
+                    <value>chromeLatest.aws</value>
+                </property>
+            </activation>
+            <properties>
+                <agent>chromeLatest.aws</agent>
+            </properties>
+        </profile> -->
+
+        <!-- <profile>
+            <id>chromeLatest.lambdatest</id>
+            <activation>
+                <property>
+                    <name>selenium</name>
+                    <value>chromeLatest.lambdatest</value>
+                </property>
+            </activation>
+            <properties>
+                <agent>chromeLatest.lambdatest</agent>
+            </properties>
+        </profile> -->
+
+        <!--        <profile>  Magnus: this broke when I updated selenium stuff -->
+        <!--            <id>operaLatest.lambdatest</id>-->
+        <!--            <activation>-->
+        <!--                <property>-->
+        <!--                    <name>selenium</name>-->
+        <!--                    <value>operaLatest.lambdatest</value>-->
+        <!--                </property>-->
+        <!--            </activation>-->
+        <!--            <properties>-->
+        <!--                <agent>operaLatest.lambdatest</agent>-->
+        <!--            </properties>-->
+        <!--        </profile>-->
+
+        <!-- <profile>
+            <id>firefoxLatest.lambdatest</id>
+            <activation>
+                <property>
+                    <name>selenium</name>
+                    <value>firefoxLatest.lambdatest</value>
+                </property>
+            </activation>
+            <properties>
+                <agent>firefoxLatest.lambdatest</agent>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>edgeLatest.lambdatest</id>
+            <activation>
+                <property>
+                    <name>selenium</name>
+                    <value>edgeLatest.lambdatest</value>
+                </property>
+            </activation>
+            <properties>
+                <agent>edgeLatest.lambdatest</agent>
+            </properties>
+        </profile> -->
+
+        <!-- <profile>
+            <id>macSafariVentura.lambdatest</id>
+            <activation>
+                <property>
+                    <name>selenium</name>
+                    <value>macSafariVentura.lambdatest</value>
+                </property>
+            </activation>
+            <properties>
+                <agent>macSafariVentura.lambdatest</agent>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>macSafariSonoma.lambdatest</id>
+            <activation>
+                <property>
+                    <name>selenium</name>
+                    <value>macSafariSonoma.lambdatest</value>
+                </property>
+            </activation>
+            <properties>
+                <agent>macSafariSonoma.lambdatest</agent>
+            </properties>
+        </profile> -->
+<!-- 
+        <profile>
+            <id> samsungGalaxyTab8os12.appium.lambdatest</id>
+            <activation>
+                <property>
+                    <name>selenium</name>
+                    <value> samsungGalaxyTab8os12.appium.lambdatest</value>
+                </property>
+            </activation>
+            <properties>
+                <agent> samsungGalaxyTab8os12.appium.lambdatest</agent>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>chromeWindows11.lambdatest</id>
+            <activation>
+                <property>
+                    <name>selenium</name>
+                    <value>chromeWindows11.lambdatest</value>
+                </property>
+            </activation>
+            <properties>
+                <agent>chromeWindows11.lambdatest</agent>
+            </properties>
+        </profile> -->
+
+        <!-- <profile>
+            <id>galaxyS10os9.appium.lambdatest</id>
+            <activation>
+                <property>
+                    <name>selenium</name>
+                    <value>galaxyS10os9.appium.lambdatest</value>
+                </property>
+            </activation>
+            <properties>
+                <agent>galaxyS10os9.appium.lambdatest</agent>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>galaxyS20os10.appium.lambdatest</id>
+            <activation>
+                <property>
+                    <name>selenium</name>
+                    <value>galaxyS20os10.appium.lambdatest</value>
+                </property>
+            </activation>
+            <properties>
+                <agent>galaxyS20os10.appium.lambdatest</agent>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>galaxyS21os11.appium.lambdatest</id>
+            <activation>
+                <property>
+                    <name>selenium</name>
+                    <value>galaxyS21os11.appium.lambdatest</value>
+                </property>
+            </activation>
+            <properties>
+                <agent>galaxyS21os11.appium.lambdatest</agent>
+            </properties>
+        </profile> -->
+
+        <!-- <profile>
+            <id>pixel4os11.appium.lambdatest</id>
+            <activation>
+                <property>
+                    <name>selenium</name>
+                    <value>pixel4os11.appium.lambdatest</value>
+                </property>
+            </activation>
+            <properties>
+                <agent>pixel4os11.appium.lambdatest</agent>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>pixel6os12.appium.lambdatest</id>
+            <activation>
+                <property>
+                    <name>selenium</name>
+                    <value>pixel6os12.appium.lambdatest</value>
+                </property>
+            </activation>
+            <properties>
+                <agent>pixel6os12.appium.lambdatest</agent>
+            </properties>
+        </profile> -->
+
+        <!-- <profile>
+            <id>huaweiP30os10.appium.lambdatest</id>
+            <activation>
+                <property>
+                    <name>selenium</name>
+                    <value>huaweiP30os10.appium.lambdatest</value>
+                </property>
+            </activation>
+            <properties>
+                <agent>huaweiP30os10.appium.lambdatest</agent>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>iphone7os12.appium.lambdatest</id>
+            <activation>
+                <property>
+                    <name>selenium</name>
+                    <value>iphone7os12.appium.lambdatest</value>
+                </property>
+            </activation>
+            <properties>
+                <agent>iphone7os12.appium.lambdatest</agent>
+            </properties>
+        </profile> -->
+
+        <!-- <profile>
+            <id>iphoneXRos12.appium.lambdatest</id>
+            <activation>
+                <property>
+                    <name>selenium</name>
+                    <value>iphoneXRos12.appium.lambdatest</value>
+                </property>
+            </activation>
+            <properties>
+                <agent>iphoneXRos12.appium.lambdatest</agent>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>iphone8os13.appium.lambdatest</id>
+            <activation>
+                <property>
+                    <name>selenium</name>
+                    <value>iphone8os13.appium.lambdatest</value>
+                </property>
+            </activation>
+            <properties>
+                <agent>iphone8os13.appium.lambdatest</agent>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>iphone8os15.appium.lambdatest</id>
+            <activation>
+                <property>
+                    <name>selenium</name>
+                    <value>iphone8os15.appium.lambdatest</value>
+                </property>
+            </activation>
+            <properties>
+                <agent>iphone8os15.appium.lambdatest</agent>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>iphone11os14.appium.lambdatest</id>
+            <activation>
+                <property>
+                    <name>selenium</name>
+                    <value>iphone11os14.appium.lambdatest</value>
+                </property>
+            </activation>
+            <properties>
+                <agent>iphone11os14.appium.lambdatest</agent>
+            </properties>
+        </profile> -->
+
+        <!-- <profile>
+            <id>iphoneXSos15.appium.lambdatest</id>
+            <activation>
+                <property>
+                    <name>selenium</name>
+                    <value>iphoneXSos15.appium.lambdatest</value>
+                </property>
+            </activation>
+            <properties>
+                <agent>iphoneXSos15.appium.lambdatest</agent>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>ipadAiros13.appium.lambdatest</id>
+            <activation>
+                <property>
+                    <name>selenium</name>
+                    <value>ipadAiros13.appium.lambdatest</value>
+                </property>
+            </activation>
+            <properties>
+                <agent>ipadAiros13.appium.lambdatest</agent>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>ipadAiros15.appium.lambdatest</id>
+            <activation>
+                <property>
+                    <name>selenium</name>
+                    <value>ipadAiros15.appium.lambdatest</value>
+                </property>
+            </activation>
+            <properties>
+                <agent>ipadAiros15.appium.lambdatest</agent>
+            </properties>
+        </profile> -->
+
+        <!-- <profile>
+            <id>galaxyTabS8os12.appium.lambdatest</id>
+            <activation>
+                <property>
+                    <name>selenium</name>
+                    <value>galaxyTabS8os12.appium.lambdatest</value>
+                </property>
+            </activation>
+            <properties>
+                <agent>galaxyTabS8os12.appium.lambdatest</agent>
+            </properties>
+        </profile> -->
+    </profiles>
+
+    <build>
+        <testResources>
+            <testResource>
+                <directory>${project.basedir}/src/main/resources</directory>
+                <filtering>true</filtering>
+                <excludes>
+                    <exclude>**/*.key</exclude>
+                    <exclude>**/*.exe</exclude>
+                </excludes>
+            </testResource>
+        </testResources>
+
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>2.6</version>
+                <configuration>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.2</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.21.0</version>
+                <configuration>
+                    <forkCount>0</forkCount>
+                    <!-- <skipTests>true</skipTests> -->
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-failsafe-plugin</artifactId>
+                <version>2.21.0</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>integration-test</goal>
+                            <goal>verify</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <suiteXmlFiles>
+                        <suiteXmlFile>src/main/resources/runAllTests.xml</suiteXmlFile>
+                    </suiteXmlFiles>
+                    <reportsDirectory>${project.basedir}/target/failsafe-reports/</reportsDirectory>
+                    <properties>
+                    <agent>${agent}</agent>
+                        <property>
+                            <name>usedefaultlisteners</name>
+                            <value>false</value>
+                        </property>
+                    </properties>
+                    <disableXmlReport>false</disableXmlReport>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>

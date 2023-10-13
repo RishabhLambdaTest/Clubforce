@@ -1,0 +1,39 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Automation tests for local">
+
+    <test name="Tests" parallel="classes" thread-count="10">
+        <classes>
+            <class name="com.clubforce.runners.PageCheckerRunner"/>
+            <class name="com.clubforce.runners.AboutUsRunner"/>
+            <class name="com.clubforce.runners.AccountPageRunner"/>
+            <class name="com.clubforce.runners.ArticlesRunner"/>
+            <class name="com.clubforce.runners.BackofficeLeftNavRunner"/>
+            <class name="com.clubforce.runners.BackofficeLoginRunner"/>
+            <class name="com.clubforce.runners.ClubPageFooterRunner"/>
+            <class name="com.clubforce.runners.ClubPageLoginRunner"/>
+            <class name="com.clubforce.runners.ClubSearchRunner"/>
+            <class name="com.clubforce.runners.MyAccountLoginRunner"/>
+            <class name="com.clubforce.runners.SULoginRunner"/>
+        </classes>
+    </test>
+
+    <test name="Setup retry suite">
+        <classes>
+            <class name="com.clubforce.framework.RetrySuiteBuilder"/>
+        </classes>
+    </test>
+
+    <test name="Rerun failed scenarios" parallel="classes" thread-count="2">
+        <classes>
+            <class name="com.clubforce.runners.FailedTestRunner1"/>
+            <class name="com.clubforce.runners.FailedTestRunner2"/>
+        </classes>
+    </test>
+
+    <test name="Build JSON report for test suite">
+        <classes>
+            <class name="com.clubforce.framework.ReportBuilder"/>
+        </classes>
+    </test>
+</suite>
+

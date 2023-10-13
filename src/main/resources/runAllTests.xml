@@ -1,0 +1,90 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Automation tests">
+
+    <test name="Tests" parallel="classes" thread-count="1">
+        <classes>
+           <class name="com.clubforce.runners.EmailRunner"/>  Magnus will fix
+            <class name="com.clubforce.runners.xgbCreateClubAndMembershipRunner"/> broken
+            <class name="com.clubforce.runners.NotificationsPageRunner"/> https://clubforce.atlassian.net/browse/LOT-277
+            <class name="com.clubforce.runners.ClubLogoRunner"/> https://clubforce.atlassian.net/browse/LOT-279
+            <class name="com.clubforce.runners.SUReportsRunner"/> https://clubforce.atlassian.net/browse/CE-743
+            <class name="com.clubforce.runners.LegacyIDRunner"/> https://clubforce.atlassian.net/browse/CE-971
+            <class name="com.clubforce.runners.ConnectBackofficeRunner"/>
+            <class name="com.clubforce.runners.FeatureToggleRunner"/>
+            <class name="com.clubforce.runners.MembershipDashboardRunner"/>
+            <class name="com.clubforce.runners.MembershipBundlesRunner"/>
+            <class name="com.clubforce.runners.xgbAccountsRunner"/>
+           <class name="com.clubforce.runners.xgbDashboardRunner"/>https://clubforce.atlassian.net/browse/CE-1216
+            <class name="com.clubforce.runners.xgbTemplatesRunner"/>
+            <class name="com.clubforce.runners.SUCreateClubAndLottoAndMembershipRunner"/>
+            <class name="com.clubforce.runners.SUCreateClubAndMembershipRunner"/>
+            <class name="com.clubforce.runners.SUCreateClubAndLottoRunner"/>
+            <class name="com.clubforce.runners.MembershipRunner"/>
+            <class name="com.clubforce.runners.SectionsAndPagesRunner"/>
+            <class name="com.clubforce.runners.SortingRunner"/>
+            <class name="com.clubforce.runners.RevenueReportRunner"/>
+            <class name="com.clubforce.runners.MembershipReportRunner"/>
+            <class name="com.clubforce.runners.LottoPayoutReportRunner"/>
+            <class name="com.clubforce.runners.LottoTicketPurchaseProdRunner"/>
+            <class name="com.clubforce.runners.LottoRandomnessTestRunner"/>
+            <class name="com.clubforce.runners.AdministrativeTasksRunner"/>
+            <class name="com.clubforce.runners.PageLoadTimesChecksRunner"/>
+            <class name="com.clubforce.runners.ComortaisRunner"/>
+            <class name="com.clubforce.runners.CurrencyRunner"/>
+            <class name="com.clubforce.runners.WebsiteSettingsRunner"/>
+            <class name="com.clubforce.runners.ForgotPasswordRunner"/>
+            <class name="com.clubforce.runners.PaginationRunner"/>
+            <class name="com.clubforce.runners.PromotionsRunner"/>
+            <class name="com.clubforce.runners.ContactPageRunner"/>
+            <class name="com.clubforce.runners.ClubPageFooterRunner"/>
+            <class name="com.clubforce.runners.BackofficeLeftNavRunner"/>
+            <class name="com.clubforce.runners.LottoCalculationsRunner"/>
+            <class name="com.clubforce.runners.LottoRunner"/>
+            <class name="com.clubforce.runners.ClubPageLoginRunner"/>
+            <class name="com.clubforce.runners.AboutUsRunner"/>
+            <class name="com.clubforce.runners.BackofficeUsersPageRunner"/>
+            <class name="com.clubforce.runners.VisualTestsRunner"/>
+            <class name="com.clubforce.runners.ClubPageHeaderRunner"/>
+            <class name="com.clubforce.runners.AccountPageRunner"/>
+            <class name="com.clubforce.runners.AddressDisplayRunner"/>
+            <class name="com.clubforce.runners.ArticlesRunner"/>
+            <class name="com.clubforce.runners.MembershipInstalmentsRunner"/>
+            <class name="com.clubforce.runners.BackofficeLoginRunner"/>
+            <class name="com.clubforce.runners.MyAccountLoginRunner"/>
+            <class name="com.clubforce.runners.SessionTransitionRunner"/>
+            <class name="com.clubforce.runners.DashboardRunner"/>
+            <class name="com.clubforce.runners.SocialMediaRunner"/>
+            <class name="com.clubforce.runners.SULoginRunner"/>
+            <class name="com.clubforce.runners.ClubSearchRunner"/>
+            <class name="com.clubforce.runners.SignUpUserRunner"/>
+            <class name="com.clubforce.runners.FilteringRunner"/>
+            <class name="com.clubforce.runners.LottoTicketPurchaseRunner"/>
+            <class name="com.clubforce.runners.RefundsRunner"/>
+            <class name="com.clubforce.runners.ClubColoursRunner"/>
+            <class name="com.clubforce.runners.ClubFeeManagementRunner"/>
+            <class name="com.clubforce.runners.MembershipRegistrationsRunner"/>
+            <class name="com.clubforce.runners.DiscountCodesRunner"/>
+            <class name="com.clubforce.runners.MembershipMultiPlanDiscountsRunner"/>
+        </classes>
+    </test>
+
+    <!-- <test name="Setup retry suite">
+        <classes>
+            <class name="com.clubforce.framework.RetrySuiteBuilder"/>
+        </classes>
+    </test>
+
+    <test name="Rerun failed scenarios" parallel="classes" thread-count="2">
+        <classes>
+            <class name="com.clubforce.runners.FailedTestRunner1"/>
+            <class name="com.clubforce.runners.FailedTestRunner2"/>
+        </classes>
+    </test> -->
+
+    <test name="Build JSON report for test suite">
+        <classes>
+            <class name="com.clubforce.framework.ReportBuilder"/>
+        </classes>
+    </test>
+</suite>
+

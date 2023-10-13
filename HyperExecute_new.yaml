@@ -1,0 +1,47 @@
+---
+version: 0.1
+globalTimeout: 90
+testSuiteTimeout: 90
+testSuiteStep: 90
+
+runson: win
+
+autosplit: true
+retryOnFailure: false
+
+maxRetries: 1
+concurrency: 1
+
+env:
+  
+cacheKey: '{{ checksum "pom.xml" }}'
+cacheDirectories:
+  - .m2
+
+runtime:
+  language: java
+  version: "20"
+
+pre:
+  - mvn -Dmaven.repo.local=./.m2 -Dmaven.test.skip=true clean install
+
+mergeArtifacts: true
+
+testDiscovery:
+  type: raw
+  mode: static
+  command: grep 'class name' src/main/resources/runAllTests.xml | awk '{print$2}' | sed 's/name=//g' | sed 's/\x3e//g' | sed 's/"//g; s/\///g'
+
+testRunnerCommand: mvn verify `-Dtest=$test `-DfailIfNoTests=false `-DsuiteXmlFile=runAllTests.xml `-Denv=test `-Dagent=chromeLatest.lambdatest
+
+# testDiscovery:
+#   type: automatic
+#   mode: static
+#   args:
+#     featureFilePaths: src/main/resources/features/
+#     frameWork: java
+#     specificTags: ["@tester"]
+
+
+
+# testRunnerCommand: mvn clean verify -Dmaven.repo.local=./.m2 dependency:resolve -Dcucumber.features=$test -DsuiteXmlFiles=runAllTests.xml -Dagent=chromeLatest.lambdatest -Denv=test 
